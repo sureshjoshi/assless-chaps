@@ -1,0 +1,24 @@
+[lift]
+name = "pants.2.22.0-cp39-darwin_arm64.scie"
+platforms = [
+    "macos-aarch64",
+]
+
+[[lift.interpreters]]
+id = "cpython"
+provider = "PythonBuildStandalone"
+release = "20240814"
+version = "3.9.19"
+flavor = "install_only_stripped"
+lazy = true
+
+[[lift.files]]
+name = "pants.2.22.0-cp39-darwin_arm64.pex"
+
+[[lift.commands]]
+# This selects the `python` binary from within the CPython 3.12 interpreter distribution
+# (a tarball) provided by PythonBuildStandalone above.
+exe = "#{cpython:python}"
+args = [
+    "{pants.2.22.0-cp39-darwin_arm64.pex}",
+]

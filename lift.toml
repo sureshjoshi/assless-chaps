@@ -1,0 +1,42 @@
+[lift]
+name = "pants-runner.scie"
+platforms = [
+    "macos-aarch64",
+]
+
+[[lift.interpreters]]
+id = "cpython"
+provider = "PythonBuildStandalone"
+release = "20240814"
+version = "3.12.5"
+flavor = "install_only_stripped"
+lazy = true
+
+[[lift.files]]
+name = "main.py"
+
+# Boot
+[[lift.commands]]
+description = "Detects the current Pants installation and launches it."
+exe = "#{cpython:python}"
+args = [
+    "{main.py}",
+]
+
+# Run Pants
+[[lift.commands]]
+name = "pants"
+# No description because this command shouldn't render in the help output (it's invoked as
+# appropriate by the default "Boot" one above)
+# description = "Runs a hermetic Pants installation."
+exe = "#{cpython:python}"
+args = [
+    "{main.py}",
+]
+
+# Self Update
+# [[lift.commands]]
+# name = "update"
+# description = "Update scie-pants."
+# exe = "#{cpython39:python}"
+# ...
