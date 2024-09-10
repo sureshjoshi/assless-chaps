@@ -21,14 +21,14 @@ def main(argv: list[str]) -> None:
     
     if not args:
         version = get_version()
-        subprocess.run([f"{os.getcwd()}/pants-runner.scie", "pants", version])
+        subprocess.run([f"{os.getcwd()}/pants-runner.scie", "pants", version], check=True)
         sys.exit(0)
     
     version = args[1]
     print(f"{pid}: Attempting to run using version {version}")
     
     # "Download" (e.g. pick) correct scie from local releases and run it (ignoring args)
-    subprocess.run([f"{os.getcwd()}/releases/{version}/pants.{version}-cp39-darwin_arm64.scie", "--version"], env={"SCIE_PANTS_VERSION": "0.12.0"})
+    subprocess.run([f"{os.getcwd()}/releases/{version}/pants.{version}-cp39-darwin_arm64.scie", "--version"], check=True, env={"SCIE_PANTS_VERSION": "0.12.0"})
     sys.exit(0)
 
 if __name__ == "__main__":
