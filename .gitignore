@@ -167,6 +167,10 @@ cython_debug/
 /.pids
 /.pants.workdir.file_lock*
 
+# Added by cargo
+
+/target
+
 # Repo-specific
-*.pex
-*.scie
+/releases/
+/tools/
