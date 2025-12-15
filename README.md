@@ -29,3 +29,5 @@ There has been no effort in tuning or debugging start-up performance.
 The most I can say is that it seems to be slower than running `time pants --version` in this same repo. That is approximately 150ms, while running `time ./pants-runner/target/release/pants-runner --version` is closer to 750ms.
 
 Why? Don't know, don't care - yet.
+
+Edit: Nothing to see here... https://github.com/sureshjoshi/assless-chaps/issues/2#issuecomment-3519510701
